@@ -1,0 +1,94 @@
+.nav {
+    width: 100%;
+    position: fixed;
+    /* border-top: 2px solid #FF6534;
+    background-color: white; */
+    top:0;
+    z-index: 10;
+}
+.nav_container {
+    width: 980px;
+    margin:0 auto;
+    padding-top: 8px;
+    background-color: #f1cb87;
+    /* opacity: 1; */
+}
+.nav_fixed * {
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+.nav_container span {
+    font-size: 40px;
+    font-family: KaiTi;
+    margin-left: 5px;
+    font-weight: bold;
+}
+.nav_wrap {
+    width: 100%;
+    height: 46px;
+    position: relative;
+    background-image: -webkit-linear-gradient(top,#eeeff3 0,#eaeef1 100%);
+    background-image: linear-gradient(to bottom,#eeeff3 0,#eaeef1 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffeeeff3', endColorstr='#ffeaeef1', GradientType=1);
+    border-top: 1px solid #DBDCE0;
+    border-bottom: 1px solid #DBDCE0;
+}
+
+.nav_list {
+    float: left;
+    width: 980px;
+    height: 46px;
+    font-family: "microsoft yahei",simhei,sans-serif;
+    font-size: 16px;
+    overflow: visible;
+    padding:0;
+    margin: 0;
+    border-bottom: 3px solid #f2cc87;
+}
+
+.nav_list li {
+    float: left;
+    line-height: 46px;
+}
+
+.nav_list li:last-child {
+    float:right;
+}
+
+.nav_list li.focus {
+    background-image: -webkit-linear-gradient(top,#e0e1e5 0,#dbdfe2 100%);
+    background-image: linear-gradient(to bottom,#e0e1e5 0,#dbdfe2 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe0e1e5', endColorstr='#ffdbdfe2', GradientType=1);
+}
+
+.nav_list li:hover {
+    background-image: -webkit-linear-gradient(top,#e5e7ea 0,#e3e5e7 100%);
+    background-image: linear-gradient(to bottom,#e5e7ea 0,#e3e5e7 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe5e7ea', endColorstr='#ffe3e5e7', GradientType=1);
+}
+
+.nav_list a {
+    color: #333;
+    text-decoration: none;
+}
+
+.nav_list a {
+    position: relative;
+    display: block;
+    padding: 0 22px;
+}
+
+
+.nav_list a:visited {
+    text-decoration: none;
+}
+.nav_list a:visited {
+    color: #333;
+}
+
+
+
+
