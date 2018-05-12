@@ -13,6 +13,10 @@
     background-color: #f1cb87;
     /* opacity: 1; */
 }
+.nav_fixed {
+    height: 100px;
+    line-height: 100px;
+}
 .nav_fixed * {
     vertical-align: middle;
     margin-bottom: 5px;
@@ -73,6 +77,7 @@
 .nav_list a {
     color: #333;
     text-decoration: none;
+    
 }
 
 .nav_list a {
@@ -80,7 +85,6 @@
     display: block;
     padding: 0 22px;
 }
-
 
 .nav_list a:visited {
     text-decoration: none;
