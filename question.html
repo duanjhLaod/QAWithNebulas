@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<style>
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 100%;    
+}
+	.question
+	{
+		text-align:center
+	}
+/*----------------------*/
+
+.answer td, .answer th {
+    padding: 10px;
+    border-bottom: 1px solid #f2f2f2;    
+}
+
+.answer th {
+    text-align: left;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+    border-bottom: 1px solid #ccc;
+    background-color: #eee;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#eee));
+    background-image: -webkit-linear-gradient(top, #f5f5f5, #eee);
+    background-image:    -moz-linear-gradient(top, #f5f5f5, #eee);
+    background-image:     -ms-linear-gradient(top, #f5f5f5, #eee);
+    background-image:      -o-linear-gradient(top, #f5f5f5, #eee); 
+    background-image:         linear-gradient(top, #f5f5f5, #eee);
+}
+
+.answer tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}  
+
+.answer th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;  
+}
+
+.answer th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.answer th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.answer tfoot td {
+    border-bottom: 0;
+    border-top: 1px solid #fff;  
+}
+
+.answer tfoot td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.answer tfoot td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+
+.answer tfoot td:only-child{
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px
+    border-radius: 0 0 6px 6px
+}
+</style>
+</head>
+
+<body>
+<div class="question">
+	<h2 id="title">nothing</h2>
+	<div align="center"><h id="content">nothing</h></div>
+</div>
+<br/>
+<div style="width:100%;height:20px;"></div>
+<div id="answers">
+	<table class="answer" id="answer">
+		<tr id="1">
+			<td><div align="center"><img src="assets/icon/star1.jpg" width=16x height=16x onclick="star(this)"><br/>
+		  123</div></td>
+			<td>
+			<div>
+				from xxx:<br></br>
+				有关问题的思考
+第一，为什么给window.location和window.location.href赋值时一样的，都可以跳转？
+思考：
+location是location.href的简写，无论是访问值还是赋值。
+从功能上，location等于location.href;
+但从本体论上，location是一个对象，location.href是它的一个属性。
+这种怪异的行为应该是为了兼容无疑。
+			</div>
+		  </td>
+	  </tr>
+		<tr id="2">
+			<td>1</td>
+			<td>有关问题的思考：
+第一，为什么给window.location和window.location.href赋值时一样的，都可以跳转？
+思考：
+location是location.href的简写，无论是访问值还是赋值。
+从功能上，location等于location.href;
+但从本体论上，location是一个对象，location.href是它的一个属性。
+这种怪异的行为应该是为了兼容无疑。</td>
+		</tr>
+  </table>
+</div>
+<script type="text/javascript" src="js/urlParam.js"></script>
+<script type="text/javascript">
+	var bodyObj = null;
+	function addRow(data)  
+	{  
+		//alert("addRow");
+		if(!bodyObj)
+			bodyObj=document.getElementById("answer");  
+		if(bodyObj==null)   
+		{  
+			alert("Body of Table not Exist!");  
+			return;  
+		}  
+		var rowCount = bodyObj.rows.length;  
+		var cellCount = bodyObj.rows[0].cells.length;  
+		var newRow = bodyObj.insertRow(rowCount++);    
+		newRow.insertCell(0).innerHTML= "<div align='center'><img src='assets/icon/star1.jpg' width=16x height=16x onclick='star(this)'><br/>" + rowCount*100000 + "</div>";
+		newRow.insertCell(1).innerHTML= "from n1oXdmwuo5jJRExnZR5rbceMEyzRsPeALgm:<br></br>The Lord of the Rings: The Return of the King";  
+	}  
+	function removeRow(inputobj)  
+	{  
+		if(inputobj==null) return;  
+		var parentTD = inputobj.parentNode;  
+		var parentTR = parentTD.parentNode;  
+		var parentTBODY = parentTR.parentNode;  
+		parentTBODY.removeChild(parentTR);  
+	}
+	function star(obj)
+	{
+		obj.src = 'assets/icon/star2.jpg';
+	}
+	window.onload = function()
+	{
+		var name = UrlParm.parm("name")	;
+		document.title = name;
+		
+		document.getElementById("title").innerHTML = UrlParm.parm("title");
+		document.getElementById("content").innerHTML = UrlParm.parm("content");
+		
+		for(var i=0; i<5; ++i)
+		{
+			addRow(null);
+		}
+	}
+</script>
+</body>
+</html>
