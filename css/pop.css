@@ -1,0 +1,98 @@
+#LAY_new_question {
+    background-color: #dceffe;
+}
+#q_new{
+    width: 660px;
+    margin: 20px auto auto;
+}
+textarea, input {
+    outline: 0;
+}
+a {
+    color: #2d64b3;
+    text-decoration: none;
+}
+
+.btn_default, .btn-default {
+    color: #fff;
+    background: #3e89fa;
+    border-bottom-color: #2b71d9;
+}
+
+a.post_head_btn {
+    line-height: 14px;
+    margin-right: 16px;
+    font-size: 14px;
+    font-family: "Microsoft Yahei","ST Hei";
+}
+
+.tb_rich_poster .poster_body .poster_component {
+    padding-bottom: 15px;
+}
+
+.tb_rich_poster .poster_head_text a.cur {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    cursor: auto;
+}
+
+.tb_rich_poster_container .tb_rich_poster .poster_head {
+    margin: 0 240px 12px 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.post_head_btn_icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url(../assets/icon/poster_icons_4ca8924.png) no-repeat;
+    margin-right: 6px;
+    margin-bottom: -1px;
+}
+
+.tb_rich_poster .poster_body .editor_textfield {
+    padding: 0 9px;
+    line-height: 28px;
+    font-size: 14px;
+    color: #333;
+    background-color: #FFF;
+    border: 1px solid #ccc;
+    border-right-color: #ccc;
+    border-bottom-color: #ccc;
+}
+
+.tb_rich_poster .poster_body .editor_title {
+    line-height: 16px;
+    width: 640px;
+    height: 30px;
+}
+
+.poster_reply{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.edui-toolbar textarea{
+    padding: 0 9px;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.tbui_placeholder {
+    position: absolute;
+    color: gray;
+    cursor: text;
+}
+
+.btn_middle, .btn-middle {
+    padding: 7px 14px;
+    font-size: 12px;
+}
+
+.poster_submit {
+    float: left;
+}
