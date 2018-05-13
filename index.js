@@ -101,7 +101,6 @@ $(function () {
                     if (json.length == 0) {
                         return;
                     }
-                    $('#list tbody').empty();
                     if (closed) {
                         listCache.closed = json;
                     } else {
@@ -115,6 +114,7 @@ $(function () {
 
     function render(list, closed) {
         var table = $('#list'); 
+        table.find('tbody').empty();
         if (closed) {
             $('#list thead th:last-child').html('状态(Status)');
             for (let i in list) {
