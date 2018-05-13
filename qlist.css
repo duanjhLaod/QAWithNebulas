@@ -72,6 +72,7 @@ table {
     -moz-border-radius: 0 6px 0 0;
     -webkit-border-radius: 0 6px 0 0;
     border-radius: 0;
+    width: 220px;
 }
 
 .bordered th:only-child {

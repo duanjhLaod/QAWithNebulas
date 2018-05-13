@@ -1,4 +1,7 @@
-
+var listCache = {
+    open: null,
+    closed: null
+}; 
 $(function () {
     $("#tool_new_q").click(function () {
         layer.open({
@@ -21,5 +24,71 @@ $(function () {
                 });
             }
         });
-    })
+    });
+
+    $('.list_tab').click(function(){
+        var $this = $(this);
+        var isFocus = $this.hasClass('focus');
+        if (isFocus) {
+            return;
+        }
+
+        $('.focus').removeClass('focus');
+        $this.addClass('focus');
+
+        $('#list tbody').empty();
+        let closed = $this.attr('data-tab-closed') === 'true';
+        let target = closed ? listCache.closed : listCache.open;
+        if (target == null) {
+            loadList(closed);
+        } else {
+            render(target, closed);
+        }
+    });
+
+    function loadList(closed) {
+        nebPay.simulateCall(to, "0", "qlist", "[" + closed + "]", {
+            listener: function(resp) {
+                if (resp.result) {
+                    let json = JSON.parse(resp.result);
+                    if (closed) {
+                        listCache.closed = json;
+                    } else {
+                        listCache.open = json;
+                    }
+                    render(json, closed);
+                }
+            }
+        });
+    }
+
+    function render(list, closed) {
+        var table = $('#list'); 
+        if (closed) {
+            $('#list thead th:last-child').html('状态');
+            for (let i in list) {
+                let ts = parseInt(list[i].closeTS);
+                table.append("<tr>" +
+                    "<td>" + list[i].bonus + " NAS</td>" +
+                    "<td>" + list[i].sum + "</td>" +
+                    "<td>" + (list[i].closed ? "已结贴" : "未结贴") + "</td>" +
+                    "</tr>");
+            }
+        } else {
+            $('#list thead tr th:last-child').html('剩余时间');
+            var nowTS = new Date().getTime() / 1000;
+
+            for (let i in list) {
+                let ts = parseInt(list[i].closeTS);
+                let remain = Math.floor((ts - nowTS) / 3600);
+                table.append("<tr>" +
+                    "<td>" + list[i].bonus + " NAS</td>" +
+                    "<td>" + list[i].sum + "</td>" +
+                    "<td>" + remain + " Hours</td>" +
+                    "</tr>");
+            }
+        }
+    }
+
+    loadList(false);
 });;

@@ -45,6 +45,12 @@
 
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="layer/layer.js"></script>
+    <script src="js/nebPay.js"></script>
+    <script>
+        var to = "n1nUXV6hfyoouamaaCut9MxL5mEJodif9C2"; // contract on testnet
+        var NebPay = require("nebpay");
+        var nebPay = new NebPay(); 
+    </script>
     <script src="index.js"></script>
 </head>
 
@@ -56,13 +62,13 @@
             </div>
             <div class="nav_wrap">
                 <ul class="nav_list j_nav_list">
-                    <li class="j_tbnav_tab focus" data-tab-main="">
-                        <a href="" class="j_nav_local_tab_link j_tbnav_tab_a" id="tab_forumname">进行中</a>
+                    <li class="j_tbnav_tab list_tab focus" data-tab-closed="false">
+                        <a class="j_nav_local_tab_link j_tbnav_tab_a" id="tab_forumname">进行中</a>
                     </li>
-                    <li class="j_tbnav_tab" data-tab-album="">
-                        <a href="" class="j_nav_local_tab_link j_tbnav_tab_a" frs-page="main">已结束</a>
+                    <li class="j_tbnav_tab list_tab" data-tab-closed="true">
+                        <a class="j_nav_local_tab_link j_tbnav_tab_a" frs-page="main">已结束</a>
                     </li>
-                    <li class="j_tbnav_tab" data-tab-good="">
+                    <li class="j_tbnav_tab">
                         <a href="" class="j_nav_local_tab_link j_tbnav_tab_a">我的</a>
                     </li>
                 </ul>
@@ -71,82 +77,12 @@
     </div>
     <table class="bordered" id="list">
         <thead>
-
             <tr>
                 <th>奖励金额</th>
                 <th>问题摘要</th>
                 <th>剩余时间</th>
             </tr>
         </thead>
-        <tr>
-            <td>1</td>
-            <td>The Shawshank Redemption</td>
-
-            <td>1994</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>The Godfather</td>
-            <td>1972</td>
-        </tr>
-        <tr>
-
-            <td>3</td>
-            <td>The Godfather: Part II</td>
-            <td>1974</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>The Good, the Bad and the Ugly</td>
-            <td>1966</td>
-
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>Pulp Fiction</td>
-            <td>1994</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>12 Angry Men</td>
-
-            <td>1957</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>
-                <a href="index.html">Schindler's List</a>
-            </td>
-            <td>1993</td>
-        </tr>
-        <tr>
-
-            <td>8</td>
-            <td>One Flew Over the Cuckoo's Nest</td>
-            <td>1975</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>The Dark Knight</td>
-
-            <td>2008</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>The Lord of the Rings: The Return of the King</td>
-            <td>2003</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>The Lord of the Rings: The Return of the King</td>
-            <td>2003</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>The Lord of the Rings: The Return of the King</td>
-            <td>2003</td>
-        </tr>
-
     </table>
 
     <br>
