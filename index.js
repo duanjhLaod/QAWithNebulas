@@ -1,7 +1,8 @@
 var listCache = {
     open: null,
     closed: null
-}; 
+};
+var myCache = [{income: 0.3, time: 1000000000, type: 1}, {income: 0.5, time: 2000000000, type: 0}]; //FAKE data
 $(function () {
     $("#tool_new_q").click(function () {
         layer.open({
@@ -27,6 +28,9 @@ $(function () {
     });
 
     $('.list_tab').click(function(){
+        $('#list').show();
+        $('#my').hide();
+
         var $this = $(this);
         var isFocus = $this.hasClass('focus');
         if (isFocus) {
@@ -36,7 +40,6 @@ $(function () {
         $('.focus').removeClass('focus');
         $this.addClass('focus');
 
-        $('#list tbody').empty();
         let closed = $this.attr('data-tab-closed') === 'true';
         let target = closed ? listCache.closed : listCache.open;
         if (target == null) {
@@ -46,11 +49,59 @@ $(function () {
         }
     });
 
+    $('.my_tab').click(function(){
+        $('#list').hide();
+        $('#my').show();
+        $('.focus').removeClass('focus');
+        $(this).addClass('focus');
+
+        if (myCache == null) {
+            nebPay.simulateCall(to, "0", "myIncome", "", {
+                listener: function(resp) {
+                    if (resp.result) {
+                        let list = JSON.parse(resp.result);
+                        if (list.length == 0) {
+                            return;
+                        }
+                        myCache = list;
+                        var table = $('#my');
+                        table.find('tbody').empty();
+                        for (let i in list) {
+                            var date = new Date();
+                            date.setTime(parseInt(list[i].time) * 1000);
+                            table.append("<tr>" +
+                                "<td>" + list[i].income + " NAS</td>" +
+                                "<td>" + date.toLocaleString() + "</td>" +
+                                "<td>" + (list[i].type == 1 ? "回答(Answer)" : "点赞(Like)") + "</td>" +
+                                "</tr>");
+                        }
+                    }
+                }
+            });
+        } else {
+            var table = $('#my');
+            table.find('tbody').empty();
+            for (let i in myCache) {
+                var date = new Date();
+                date.setTime(parseInt(myCache[i].time) * 1000);
+                table.append("<tr>" +
+                    "<td>" + myCache[i].income + " NAS</td>" +
+                    "<td>" + date.toLocaleString() + "</td>" +
+                    "<td>" + (myCache[i].type == 1 ? "回答(Answer)" : "点赞(Like)") + "</td>" +
+                    "</tr>");
+            }
+        }
+    });
+
     function loadList(closed) {
         nebPay.simulateCall(to, "0", "qlist", "[" + closed + "]", {
             listener: function(resp) {
                 if (resp.result) {
                     let json = JSON.parse(resp.result);
+                    if (json.length == 0) {
+                        return;
+                    }
+                    $('#list tbody').empty();
                     if (closed) {
                         listCache.closed = json;
                     } else {
