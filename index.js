@@ -65,17 +65,17 @@ $(function () {
     function render(list, closed) {
         var table = $('#list'); 
         if (closed) {
-            $('#list thead th:last-child').html('状态');
+            $('#list thead th:last-child').html('状态(Status)');
             for (let i in list) {
                 let ts = parseInt(list[i].closeTS);
                 table.append("<tr>" +
                     "<td>" + list[i].bonus + " NAS</td>" +
                     "<td>" + list[i].sum + "</td>" +
-                    "<td>" + (list[i].closed ? "已结贴" : "未结贴") + "</td>" +
+                    "<td>" + (list[i].closed ? "已结贴(Closed)" : "未结贴(Expired)") + "</td>" +
                     "</tr>");
             }
         } else {
-            $('#list thead tr th:last-child').html('剩余时间');
+            $('#list thead tr th:last-child').html('剩余时间(Remain)');
             var nowTS = new Date().getTime() / 1000;
 
             for (let i in list) {
