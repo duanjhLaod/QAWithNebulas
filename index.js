@@ -26,10 +26,34 @@ $(function () {
             }
         });
     });
+    $('#btn_add_answer').click(function(){
+        layer.open({
+            type: 1, 
+            title: false, 
+            closeBtn: false, 
+            area:['600px;', '300px'], 
+            shade: 0.6, 
+            id: 'LAY_add_answer', 
+            resize: false, 
+            btn: ['发布', '取消'], 
+            btnAlign: 'c', 
+            moveType: 1,
+            content: $('#add_answer'),
+            success: function (layero) {
+                var btn = layero.find('.layui-layer-btn');
+                btn.find('.layui-layer-btn0').click(function(){
+                    var cnt = layero.find('.layui-layer-content');
+                    alert(cnt.find('#answer_detail').val());
+                });
+            }
+        });
+    });
 
     $('.list_tab').click(function(){
         $('#list').show();
         $('#my').hide();
+        $('#question_detail').hide();
+        $('#tbui_aside_float_bar').show();
 
         var $this = $(this);
         var isFocus = $this.hasClass('focus');
@@ -52,6 +76,9 @@ $(function () {
     $('.my_tab').click(function(){
         $('#list').hide();
         $('#my').show();
+        $('#question_detail').hide();
+        $('#tbui_aside_float_bar').hide();
+
         $('.focus').removeClass('focus');
         $(this).addClass('focus');
 
@@ -148,6 +175,10 @@ $(function () {
     $('#q_detail').keyup(function(){
         var len = $.trim($(this).val()).length;
         $('#q_detail_cnt').text(len + "/312");
+    });
+    $('#answer_detail').keyup(function(){
+        var len = $.trim($(this).val()).length;
+        $('#answer_detail_cnt').text(len + "/312");
     });
 
     loadList(false);
