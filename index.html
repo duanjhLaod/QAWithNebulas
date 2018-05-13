@@ -102,7 +102,7 @@
                         <div class="poster_head clearfix">
                             <div class="poster_head_text">
                                 <a class="add_thread_btn post_head_btn cur" title="新提问" href="javascript:;">
-                                    <span class="post_head_btn_icon post_head_btn_icon_post"></span>新提问</a>
+                                    <span class="post_head_btn_icon post_head_btn_icon_post"></span>新提问(subject)</a>
                             </div>
                         </div>
     
@@ -115,7 +115,7 @@
                                     <input id="q_summary" type="text" class="editor_textfield editor_title ui_textfield j_title j_topic_sug_input normal-prefix" name="title" placeholder="请填写问题摘要"
                                         autocomplete="off" maxlength="30">
                                     
-                                        <div class="tbui_placeholder" style="top: 1px; left: 620px; height: 30px; line-height: 30px; color: rgb(191, 191, 191); display: block;">0/30</div>
+                                        <div class="tbui_placeholder" id="q_summary_cnt" style="top: 1px; left: 620px; height: 30px; line-height: 30px; color: rgb(191, 191, 191); display: block;">0/30</div>
                                     </div>
                                     <span class="topic_add_btn j_topic_add_btn"></span>
                                     <!-- <p class="fullscreen-word-limit">
@@ -126,15 +126,32 @@
     
     
                             <div class="poster_component">
-                                <div id="q_detail" class="poster_reply">问题描述:</div>
+                                <div class="poster_reply">问题描述(detail):<span id="q_detail_cnt" style="float:right;margin-right:9px;color:gray;">0/312</span></div>
                                 <div class="old_style_wrapper">
                                     <div class="edui-container" style="width: 720px;">
                                         <div class="edui-toolbar">
-                                            <textarea maxlength="512" cols="89" rows="5" style="resize: none;"></textarea>
+                                            <textarea id="q_detail" maxlength="312" cols="89" rows="3" style="resize: none;"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="poster_error j_error"></div>
+                            </div>
+
+                            <div class="poster_component">
+                                <div>
+                                    <span>奖励(bonus)：</span><input name="bonus" placeholder="0.0001~10" type="number" min="0.0001" max="10" step="0.0001" style="width:90px;"><span>NAS</span>
+                                </div>
+                            </div>
+                            <div class="poster_component">
+                                <div>
+                                    <span>有效期(keep)：</span>
+                                    <select name="keepday">
+                                        <option value="1">1天（1 day）</option>
+                                        <option value="3">3天（3 day）</option>
+                                        <option value="5">5天（5 day）</option>
+                                        <option value="7">1周（1 week）</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>

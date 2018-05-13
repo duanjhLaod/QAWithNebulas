@@ -90,5 +90,14 @@ $(function () {
         }
     }
 
+    $('#q_summary').keyup(function(){
+        var len = $.trim($(this).val()).length;
+        $('#q_summary_cnt').text(len + "/30");
+    });
+    $('#q_detail').keyup(function(){
+        var len = $.trim($(this).val()).length;
+        $('#q_detail_cnt').text(len + "/312");
+    });
+
     loadList(false);
 });;
